@@ -14,37 +14,24 @@
         <canvas id="myChart" width="500" height="500">
         </canvas>
     </div>
+    <script src="node_modules/chart.js/dist/chart.js"></script>
     <script>
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-        ];
-
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45],
-            }]
-        };
-
-        const config = {
-            type: 'line',
-            data: data,
-            options: {}
-        };
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+        const ctx = document.getElementById('myChart');
+        const myChart = new Chart(ctx, {
+            data: {
+                datasets: [{
+                    type: 'bar',
+                    label: 'Bar Dataset',
+                    data: [10, 20, 30, 40]
+                }, {
+                    type: 'line',
+                    label: 'Line Dataset',
+                    data: [50, 50, 50, 50],
+                }],
+                labels: ['January', 'February', 'March', 'April']
+            }
+        });
     </script>
-
 </body>
 
 </html>
